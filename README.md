@@ -1,43 +1,31 @@
-# template-laravel
+# Template Laravel
 
-´´´ Setup Docker Com Laravel 10 e PHP 8.1
-Passo a passo
-Baixe o .Zip do projeto
-Crie o Arquivo .env
+Este é um template para iniciar um projeto Laravel utilizando Docker, PHP 8.1 e outras ferramentas necessárias para desenvolvimento. Siga os passos abaixo para configurar e iniciar o projeto:
 
-cp .env.example .env
-Atualize as variáveis de ambiente do arquivo .env
+## Configuração
 
+1. **Baixe o Projeto:**
+   - Faça o download do projeto em formato .zip.
+
+2. **Crie o Arquivo .env:**
+   - Utilize o arquivo `.env.example` como base e crie um novo arquivo `.env` no diretório raiz do projeto.
+
+3. **Atualize as Variáveis de Ambiente:**
+   - Abra o arquivo `.env` e atualize as variáveis de ambiente conforme necessário. Aqui estão algumas variáveis comuns que você pode precisar configurar:
+
+```plaintext
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=
+APP_KEY= "chave_aqui"
 APP_DEBUG=true
-APP_URL=http://localhost:8989
+APP_URL=http://localhost:8000
 
-LOG_CHANNEL=stack
-LOG_DEPRECATIONS_CHANNEL=null
-LOG_LEVEL=debug
-
-#Especificaçoes do docker-compose.yml
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=sistema_gestao
 DB_USERNAME=root
 DB_PASSWORD=root
-
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-FILESYSTEM_DISK=local
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-MEMCACHED_HOST=127.0.0.1
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
 
 MAIL_MAILER=smtp
 MAIL_HOST=mailhog
@@ -60,17 +48,40 @@ PUSHER_APP_SECRET=
 PUSHER_APP_CLUSTER=mt1
 
 MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}" ´´´
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}" 
 
-Suba os containers do projeto
 
+```
+## Docker
+
+4. **Suba os Containers do Projeto:**
+* Execute o seguinte comando para subir os containers do projeto em background:
+```
 docker-compose up -d
-Acesse o container app
+```
 
+6. **Acesse o Container App:**
+* Após subir os containers, acesse o container app para executar comandos relacionados ao Laravel:
+```
 docker-compose exec app bash
-Instale as dependências do projeto
+```
 
+## Projeto Laravel
+
+7. **Instale as Dependências do Projeto:**
+* Dentro do container app, execute o seguinte comando para instalar as dependências do projeto Laravel:
+```
 composer install
-Gere a key do projeto Laravel
-
+```
+8. **Gere a Chave do Projeto Laravel:**
+* Ainda dentro do container app, gere a chave do projeto Laravel com o seguinte comando:
+```
 php artisan key:generate
+```
+e coloque nesta linha => APP_KEY= "chave_aqui"
+```
+
+Com esses passos o ambiente de desenvolvimento Laravel estará pronto para ser usado. 
+Acesse o projeto em :
+```
+http://localhost:8000 
