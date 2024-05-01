@@ -1,11 +1,11 @@
 # Template Laravel
 
-Este é um template para iniciar um projeto Laravel utilizando Docker, PHP 8.1 e outras ferramentas necessárias para desenvolvimento. Siga os passos abaixo para configurar e iniciar o projeto:
-
+Template para iniciar um projeto Laravel 11 utilizando Docker, PHP 8.1 e outras ferramentas necessárias para desenvolvimento.
 ## Configuração
 
-1. **Baixe o Projeto:**
-   - Faça o download do projeto em formato .zip.
+1. **Baixe o Projeto de um dos dois modos:**
+   - Faça o download do projeto em formato .zip 
+   - ou Clone-o : git clone https://github.com/Carlos-Devico/template-laravel.git
 
 2. **Crie o Arquivo .env:**
    - Utilize o arquivo `.env.example` como base e crie um novo arquivo `.env` no diretório raiz do projeto.
@@ -14,13 +14,13 @@ Este é um template para iniciar um projeto Laravel utilizando Docker, PHP 8.1 e
    - Abra o arquivo `.env` e atualize as variáveis de ambiente conforme necessário. Aqui estão algumas variáveis comuns que você pode precisar configurar:
 
 ```plaintext
-APP_NAME=Laravel
+APP_NAME=nome_banco
 APP_ENV=local
-APP_KEY= "chave_aqui"
+APP_KEY= chave_aqui
 APP_DEBUG=true
 APP_URL=http://localhost:8000
 
-DB_CONNECTION=mysql
+DB_HOST=db
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=sistema_gestao
@@ -52,6 +52,8 @@ MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 
 ```
+* Na linha onde esta "DB_HOST=db" 
+  * Dever ser usado o nome do serviço dado no docker-composer.yaml nesse caso  "db"
 ## Docker
 
 4. **Suba os Containers do Projeto:**
@@ -78,10 +80,9 @@ composer install
 ```
 php artisan key:generate
 ```
-e coloque nesta linha => APP_KEY= "chave_aqui"
+e coloque nesta linha => APP_KEY= chave_aqui
 ```
 
-Com esses passos o ambiente de desenvolvimento Laravel estará pronto para ser usado. 
-Acesse o projeto em :
+Com esses passos o ambiente de desenvolvimento Laravel estará pronto para ser acessado em :
 ```
 http://localhost:8000 
